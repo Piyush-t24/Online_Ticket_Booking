@@ -1,0 +1,29 @@
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-hidden {
+    scrollbar-width: none;
+}
+
+/* Disable default browser appearance for password fields */
+input[type="password"] {
+    -webkit-appearance: none;
+    /* Chrome, Safari */
+    -moz-appearance: none;
+    /* Firefox */
+    appearance: none;
+    /* Default */
+}
+
+/* Remove default browser icon for Internet Explorer */
+input[type="password"]::-ms-reveal {
+    display: none;
+}
+
+/* Remove default browser icon for Chrome, Safari, and Edge */
+input[type="password"]::-webkit-credentials-auto-fill-button {
+    display: none;
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Form For Heritage Hub</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      form label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+      }
+
+      form input,
+      form select,
+      form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .error {
+        color: red;
+        font-size: 0.9rem;
+      }
+      #progress-container {
+        display: none; /* Initially hidden */
+        position: fixed; /* Fix position on the screen */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="progress-container">
+      <progress
+        id="progress-bar"
+        value="0"
+        max="100"
+        style="width: 70%; height: 2rem"
+      ></progress>
+      <p id="progress-text">Uploading... 0%</p>
+    </div>
+    <div class="container">
+      <h1>Input Form For Heritage Hub</h1>
+      <h2><a href="/admin/logout">LOG OUT</a></h2>
+      <h2><a href="/list-venues">LIST</a></h2>
+
+      <form id="inputForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <h3>Location</h3>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required />
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required />
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required />
+
+        <label for="pin">Pin (6 digits):</label>
+        <input
+          type="number"
+          id="pin"
+          name="pin"
+          min="100000"
+          max="999999"
+          required
+        />
+
+        <h3>Description</h3>
+        <label for="line">Description Line:</label>
+        <textarea id="line" name="line" required></textarea>
+
+        <label for="elaborated">Elaborated Description:</label>
+        <textarea id="elaborated" name="elaborated" required></textarea>
+
+        <h3>Fare Cost</h3>
+        <label for="indianAdult">Indian Adult Fare:</label>
+        <input type="number" id="indianAdult" name="indianAdult" required />
+
+        <label for="indianChild">Indian Child Fare:</label>
+        <input type="number" id="indianChild" name="indianChild" required />
+
+        <label for="foreignAdult">Foreign Adult Fare:</label>
+        <input type="number" id="foreignAdult" name="foreignAdult" required />
+
+        <label for="foreignChild">Foreign Child Fare:</label>
+        <input type="number" id="foreignChild" name="foreignChild" required />
+
+        <h3>Working Hours</h3>
+        <label for="openingHour">Opening Hour:</label>
+        <input
+          type="number"
+          id="openingHour"
+          name="openingHour"
+          min="0"
+          max="23"
+          required
+        />
+        <label for="openingMinute">Opening Minute:</label>
+        <input
+          type="number"
+          id="openingMinute"
+          name="openingMinute"
+          min="0"
+          max="59"
+          required
+        />
+
+        <label for="closingHour">Closing Hour:</label>
+        <input
+          type="number"
+          id="closingHour"
+          name="closingHour"
+          min="0"
+          max="23"
+          required
+        />
+        <label for="closingMinute">Closing Minute:</label>
+        <input
+          type="number"
+          id="closingMinute"
+          name="closingMinute"
+          min="0"
+          max="59"
+          required
+        />
+
+        <h3>Working Days</h3>
+        <label for="workingDays">Select Working Days:</label>
+        <select id="workingDays" name="workingDays" multiple required>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+        </select>
+
+        <h3>Contact Information</h3>
+        <label for="phNo">Phone Number (10 digits):</label>
+        <input
+          type="number"
+          id="phNo"
+          name="phNo"
+          min="1000000000"
+          max="9999999999"
+          required
+        />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="image">Image </label>
+        <input
+          type="file"
+          id="imgdata"
+          enctype="multipart/form-data"
+          name="image"
+          required
+        />
+
+        <h3>Types of Heritage</h3>
+        <label for="typeofVenue">Select Types of Heritage:</label>
+        <select id="levelType" name="typeofVenue" required>
+          <option value="Museum">Museum</option>
+          <option value="Monuments">Monuments</option>
+          <option value="Urban_Attraction">Urban Attraction</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("inputForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(event.target);
+          const progressContainer =
+            document.getElementById("progress-container");
+          const progressBar = document.getElementById("progress-bar");
+          const progressText = document.getElementById("progress-text");
+
+          // Show progress bar before starting
+          progressContainer.style.display = "block";
+          progressBar.value = 0;
+          progressText.textContent = "Uploading... 0%";
+
+          try {
+            // Simulate upload progress (since fetch does not have built-in progress tracking)
+            for (let i = 0; i <= 100; i += 10) {
+              await new Promise((resolve) => setTimeout(resolve, 200)); // Fake delay
+              progressBar.value = i;
+              progressText.textContent = `Uploading... ${i}%`;
+            }
+
+            const response = await fetch("/venue/add-entries", {
+              method: "POST",
+              body: formData,
+              headers: { "X-Requested-With": "XMLHttpRequest" },
+            });
+
+            if (response.ok) {
+              progressText.textContent = "Upload Complete!";
+              alert("Form submitted successfully!");
+
+              // Reset the form
+              event.target.reset();
+
+              // Hide progress bar after success
+              setTimeout(() => {
+                progressContainer.style.display = "none";
+              }, 1500);
+            } else {
+              const errorData = await response.json();
+              alert(
+                "Error: " + (errorData.message || "Form submission failed.")
+              );
+              progressContainer.style.display = "none";
+            }
+          } catch (error) {
+            alert("An error occurred: " + error.message);
+            progressContainer.style.display = "none";
+          }
+        });
+    </script>
+  </body>
+</html>

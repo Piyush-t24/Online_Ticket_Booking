@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERITAGE HUB</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="icon" href="images/logo1.png" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .venue-details {
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .venue-details img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .venue-details h2 {
+            margin: 10px 0;
+        }
+        .venue-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+   
+        <h1 class="text-3xl m-b m-10">DASHBOARD</h1>
+        <div class="flex flex-col md:flex-row  m-20 p-5">
+        <div class="venue-details">
+            <img src="<%= details.imgLink %>" alt="<%= details.name %>">
+            <h2><%= details.name %></h2>
+            <p><strong>Address:</strong> <%= details.location.address %></p>
+            <p><strong>City:</strong> <%= details.location.city %></p>
+            <p><strong>State:</strong> <%= details.location.state %></p>
+            <p><strong>Pin Code:</strong> <%= details.location.pin %></p>
+        </div><div class="booking-form">
+            <form id="bookingForm" method="POST" action="/author/add-slot">
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+        
+                <div id="slots-container">
+                    <div class="slot">
+                        <div class="form-group">
+                            <label for="startTime">Start Time</label>
+                            <div class="time-group">
+                                <input type="number" name="slots[0][startTime][hour]" min="0" max="23" placeholder="Hour" required>
+                                <input type="number" name="slots[0][startTime][minute]" min="0" max="59" placeholder="Minute" required>
+                            </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="endTime">End Time</label>
+                            <div class="time-group">
+                                <input type="number" name="slots[0][endTime][hour]" min="0" max="23" placeholder="Hour" required>
+                                <input type="number" name="slots[0][endTime][minute]" min="0" max="59" placeholder="Minute" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <button type="button" id="addSlot">Add Another Slot</button>
+        
+                <div class="form-group">
+                    <label for="maxCapacity">Max Capacity</label>
+                    <input type="number" id="maxCapacity" name="maxCapacity" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="elasticCapacity">Elastic Capacity</label>
+                    <input type="number" id="elasticCapacity" name="elasticCapacity" required>
+                </div>
+        
+                
+        
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+        
+        
+    </div>
+   <script>
+    let slotIndex = 1; // To track the index of the added slots
+
+document.getElementById('addSlot').addEventListener('click', function() {
+    const slotContainer = document.getElementById('slots-container');
+    
+    const slotDiv = document.createElement('div');
+    slotDiv.classList.add('slot');
+    
+    slotDiv.innerHTML = `
+        <div class="form-group">
+            <label for="startTime">Start Time</label>
+            <div class="time-group">
+                <input type="number" name="slots[${slotIndex}][startTime][hour]" min="0" max="23" placeholder="Hour" required>
+                <input type="number" name="slots[${slotIndex}][startTime][minute]" min="0" max="59" placeholder="Minute" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="endTime">End Time</label>
+            <div class="time-group">
+                <input type="number" name="slots[${slotIndex}][endTime][hour]" min="0" max="23" placeholder="Hour" required>
+                <input type="number" name="slots[${slotIndex}][endTime][minute]" min="0" max="59" placeholder="Minute" required>
+            </div>
+        </div>
+    `;
+    
+    slotContainer.appendChild(slotDiv);
+    slotIndex++; // Increment index for next slot
+});
+
+   </script>
+
+        
+        <style>
+            .booking-form {
+                width: 300px;
+                margin: 0 auto;
+            }
+        
+            .form-group {
+                margin-bottom: 15px;
+            }
+        
+            .time-group {
+                display: flex;
+                justify-content: space-between;
+            }
+        
+            .time-group input {
+                width: 45%;
+            }
+        
+            button {
+                width: 100%;
+                padding: 10px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+        
+            button:hover {
+                background-color: #45a049;
+            }
+            .booking-form {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .time-group {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .time-group input {
+        width: 45%;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    #addSlot {
+        background-color: #007BFF;
+    }
+
+    #addSlot:hover {
+        background-color: #0056b3;
+    }
+
+    .slot {
+        margin-bottom: 20px;
+    }
+        </style>
+        
+</html>

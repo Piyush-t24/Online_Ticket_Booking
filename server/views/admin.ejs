@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERITAGE HUB</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="icon" href="images/logo1.png" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-full h-full bg-zinc-900 p-10 text-white">
+        <h1 class="text-3xl m-b">Register</h1>
+        <hr>
+        <form action="/admin/register" method="post" class="mt-2 mb-10 flex create-form">
+            <input  class="px-5 py-2 border-2 rounded-lg ml-2 border-zinc-800 outline-none bg-transparent" type="text" placeholder="name" name="name">
+            <input  class="px-5 py-2 border-2 rounded-lg ml-2 border-zinc-800 outline-none bg-transparent" type="text" placeholder="email" name="email">
+            <input  class="px-5 py-2 border-2 rounded-lg ml-2 border-zinc-800 outline-none bg-transparent" type="password" placeholder="password" name="password">
+            <input  class="px-5 py-2 bg-blue-500 rounded-lg ml-3" type="submit" value="Create User">
+        </form>
+        
+
+
+        <h1 class="text-3xl m-b ">Log In</h1>
+        
+        <form action="/admin/login" method="post" class="mt-5 mb-2 flex create-form">
+            <input class="px-5 py-2 border-2 rounded-lg ml-2 border-zinc-800 outline-none bg-transparent" type="text" placeholder="email" name="email">
+            <input class="px-5 py-2 border-2 rounded-lg ml-2 border-zinc-800 outline-none bg-transparent" type="password" placeholder="password" name="password">
+            <input class="px-5 py-2 bg-blue-500 rounded-lg ml-3" type="submit" value="Log In">
+        </form>
+        
+        
+</html>

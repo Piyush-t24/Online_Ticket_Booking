@@ -6,4 +6,8 @@ export default defineConfig({
   plugins: [
     react(),
   ],
+  base: '/author/',
+  build: {
+    outDir: 'dist'
+  }
 })

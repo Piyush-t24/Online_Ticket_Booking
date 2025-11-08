@@ -40,6 +40,11 @@ module.exports.loginUser = async (req, res) => {
         password: req.body.password
     };
     const result = await userService.loginUser(user);
+
+    if (result.error) {
+        return res.status(400).json({ error: result.error });
+    }
+
     console.log(result.token)
     res.cookie('token', result.token, {
         httpOnly: true,  // Prevents JavaScript from accessing it

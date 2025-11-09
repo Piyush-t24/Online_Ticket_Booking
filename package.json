@@ -1,0 +1,12 @@
+{
+  "name": "museopass",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:all": "npm run build:client && npm run build:author && npm run build:admin && node scripts/copy-builds.js",
+    "build:client": "cd client && npm install && npm run build",
+    "build:author": "cd author && npm install && npm run build",
+    "build:admin": "cd admin && npm install && npm run build"
+  }
+}
+

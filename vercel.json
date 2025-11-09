@@ -1,0 +1,27 @@
+{
+  "buildCommand": "npm run build:all",
+  "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/(.*)",
+      "destination": "/admin/$1"
+    },
+    {
+      "source": "/author",
+      "destination": "/author/index.html"
+    },
+    {
+      "source": "/author/(.*)",
+      "destination": "/author/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/client/$1"
+    }
+  ]
+}
+

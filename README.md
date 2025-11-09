@@ -123,8 +123,6 @@ Online_Ticket_Booking/
    **Backend (Server):**
 
    Create `.env` file in `server/` directory:
-
-   Create `.env` file in `server/` directory:
    ```env
    DB_CONNECT=your_mongodb_connection_string
    RAZORPAY_KEY_ID=your_razorpay_key_id

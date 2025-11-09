@@ -87,42 +87,47 @@ Online_Ticket_Booking/
 ### Steps to Run
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/Piyush-t24/Online_Ticket_Booking.git
    cd Online_Ticket_Booking
    ```
 
 2. **Install dependencies for each app:**
-   
+
    Install backend dependencies:
+
    ```bash
    cd server
    npm install
    cd ..
    ```
-   
+
    Install frontend dependencies:
+
    ```bash
    # Client app
    cd client
    npm install
    cd ..
-   
+
    # Author app
    cd author
    npm install
    cd ..
-   
+
    # Admin app
    cd admin
    npm install
    cd ..
    ```
+
 3. Set up environment variables:
 
    **Backend (Server):**
 
    Create `.env` file in `server/` directory:
+
    ```env
    DB_CONNECT=your_mongodb_connection_string
    RAZORPAY_KEY_ID=your_razorpay_key_id
@@ -139,7 +144,7 @@ Online_Ticket_Booking/
    HH_EMAIL=smtp_email_address
    HH_PASSWORD=password
    ```
-   
+
    **Note:** Use `DB_CONNECT` (not `MONGO_URI`) as the variable name.
 
    **Frontend (Client App):**
@@ -173,6 +178,7 @@ Online_Ticket_Booking/
 4. **Start the development servers:**
 
    **Start Backend Server:**
+
    ```bash
    cd server
    npm start
@@ -180,22 +186,25 @@ Online_Ticket_Booking/
    ```
 
    **Start Frontend Apps (in separate terminals):**
-   
+
    Client App:
+
    ```bash
    cd client
    npm run dev
    # Client app will run on http://localhost:5173
    ```
-   
+
    Author App:
+
    ```bash
    cd author
    npm run dev
    # Author app will run on http://localhost:5174 (or next available port)
    ```
-   
+
    Admin App:
+
    ```bash
    cd admin
    npm run dev
@@ -225,16 +234,19 @@ The backend server is deployed on AWS. Set environment variables in AWS Secrets 
 ## Available Scripts
 
 ### Root Level
+
 - `npm run build:all` - Build all three frontend apps
 - `npm run build:client` - Build client app only
 - `npm run build:author` - Build author app only
 - `npm run build:admin` - Build admin app only
 
 ### Server
+
 - `npm start` - Start production server
 - `npm run dev` - Start development server with nodemon
 
 ### Frontend Apps (Client/Author/Admin)
+
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
@@ -253,6 +265,7 @@ The backend server is deployed on AWS. Set environment variables in AWS Secrets 
 Feel free to contribute by submitting issues or pull requests. Follow the standard guidelines for coding and documentation.
 
 **Before contributing:**
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)

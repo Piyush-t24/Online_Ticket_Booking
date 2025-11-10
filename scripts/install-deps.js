@@ -26,13 +26,20 @@ apps.forEach((app) => {
   
   try {
     // Use absolute path and ensure we're in the right directory
-    execSync('npm install --legacy-peer-deps --no-audit --no-fund', {
+    // First, clean any existing node_modules to avoid conflicts
+    const nodeModulesPath = path.join(appPath, 'node_modules');
+    if (fs.existsSync(nodeModulesPath)) {
+      console.log(`   🧹 Cleaning existing node_modules for ${app}...`);
+      fs.rmSync(nodeModulesPath, { recursive: true, force: true });
+    }
+    
+    execSync('npm install --legacy-peer-deps --no-audit --no-fund --prefer-offline=false', {
       cwd: appPath,
       stdio: 'inherit',
       shell: true,
       env: {
         ...process.env,
-        npm_config_cache: path.join(rootDir, '.npm-cache')
+        npm_config_legacy_peer_deps: 'true'
       }
     });
     

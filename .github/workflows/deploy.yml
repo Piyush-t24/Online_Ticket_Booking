@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - 'server/**'
-      - '.github/workflows/deploy.yml'
+      - "server/**"
+      - ".github/workflows/deploy.yml"
 
 jobs:
   deploy:

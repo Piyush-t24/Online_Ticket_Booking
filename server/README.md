@@ -1,4 +1,4 @@
-# Heritage Hub
+# MuseoPass
 
 ## Project Setup
 
@@ -121,10 +121,10 @@ To add a new venue, you need to upload an image file along with the following JS
 
 ```json
 {
-  "name": "Heritage Museum",
-  "address": "123 Heritage St",
-  "city": "Heritage City",
-  "state": "Heritage State",
+  "name": "Museum Example",
+  "address": "123 Museum St",
+  "city": "Museum City",
+  "state": "Museum State",
   "pin": 123456,
   "line": "A short description",
   "elaborated": "A detailed description",
@@ -139,7 +139,7 @@ To add a new venue, you need to upload an image file along with the following JS
   "workingDays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
   "typeofVenue": "Museum",
   "phNo": "1234567890",
-  "email": "contact@heritagemuseum.com"
+  "email": "contact@museopass.com"
 }
 ```
 

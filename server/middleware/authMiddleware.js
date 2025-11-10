@@ -7,7 +7,7 @@ const authorModel = require('../db/models/authorModel')
 
 module.exports.authAdmin = async (req, res, next) => {
     try {
-        // Extract token from cookies or Authorization header
+        
         const token = req.cookies.token || (req.header('Authorization') && req.header('Authorization').split(' ')[1]);
         if (!token) {
             return res.status(401).send('<script>alert("Please log in again"); window.location.href="/";</script>');
@@ -80,7 +80,6 @@ module.exports.authAuthor = async (req, res, next) => {
         if (!token) {
             return res.status(401).json({ message: 'No token provided' });
         }
-
         // Verify if the token is valid
         const decode = jwt.verify(token, process.env.JWT_SECRET);
 

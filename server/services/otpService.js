@@ -38,7 +38,7 @@ module.exports.sendOTP = async (email) => {
         const mailOptions = {
             from: process.env.HH_EMAIL,
             to: email,
-            subject: "OTP FROM HERITAGE HUB",
+            subject: "OTP FROM MUSEOPASS",
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 500px; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 10px; background-color: #f9f9f9;">
                     <h2 style="text-align: center; color: #333;">GREETINGS, </h2>

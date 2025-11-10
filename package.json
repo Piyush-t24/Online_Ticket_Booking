@@ -5,8 +5,8 @@
   "scripts": {
     "install:all": "node scripts/install-deps.js",
     "build:all": "npm run install:all && npm run build:client && npm run build:author && npm run build:admin && node scripts/copy-builds.js",
-    "build:client": "cd client && npm run build",
-    "build:author": "cd author && npm run build",
-    "build:admin": "cd admin && npm run build"
+    "build:client": "node scripts/build-app.js client",
+    "build:author": "node scripts/build-app.js author",
+    "build:admin": "node scripts/build-app.js admin"
   }
 }

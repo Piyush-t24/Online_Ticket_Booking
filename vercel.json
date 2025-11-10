@@ -1,4 +1,5 @@
 {
+  "installCommand": "npm install",
   "buildCommand": "npm run build:all",
   "outputDirectory": "public",
   "rewrites": [

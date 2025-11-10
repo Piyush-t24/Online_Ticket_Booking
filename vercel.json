@@ -2,6 +2,7 @@
   "installCommand": "npm install",
   "buildCommand": "npm run build:all",
   "outputDirectory": "public",
+  "nodeVersion": "18.x",
   "rewrites": [
     {
       "source": "/admin",

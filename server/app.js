@@ -11,6 +11,7 @@ const userRoutes = require('./routes/userRoutes');
 const authorRoutes = require('./routes/authorRoutes')
 const authRoutes = require('./routes/authRoutes');
 const orderRoutes = require('./routes/orderRoutes')
+const setEnvVariables = require('./utils/awsSecrets');  
 app.use(cors({
   origin: (origin, callback) => {
     callback(null, true); 
@@ -21,14 +22,14 @@ require('events').EventEmitter.defaultMaxListeners = 100; // Set it to 100
 
 
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieparser());
 connecttoDB();
-app.set('view engine', 'ejs');
-
-const path = require('path');
-const _dirname = path.dirname("")
+if(process.env.ENV == 'production'){
+    setEnvVariables();
+}
 // const buildpath = path.join(_dirname, "../client/dist");
 // app.use(express.static(buildpath));
 // ------------------------------------------

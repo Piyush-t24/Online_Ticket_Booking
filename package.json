@@ -9,4 +9,3 @@
     "build:admin": "cd admin && npm install --legacy-peer-deps && npm run build"
   }
 }
-

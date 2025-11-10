@@ -44,7 +44,6 @@ apps.forEach((app) => {
     });
     
     // Verify node_modules exists
-    const nodeModulesPath = path.join(appPath, 'node_modules');
     if (!fs.existsSync(nodeModulesPath)) {
       console.error(`❌ node_modules not created for ${app}!`);
       process.exit(1);

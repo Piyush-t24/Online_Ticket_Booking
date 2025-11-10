@@ -17,9 +17,8 @@ module.exports.addAuthor = async (obj)=>{
 module.exports.loginAuthor = async (obj)=>{
     if (!obj) {
         throw new Error("invalid");
-        
     }
-
+    
     try{
         const user = await authorModel.findOne({email: obj.email}).select("+password");
         if (!user) {
@@ -32,7 +31,6 @@ module.exports.loginAuthor = async (obj)=>{
         const token = await user.generateAuthToken();
         return {user, token};
     } catch (err) {
-     
-        throw new Error(e.message);
+        throw err;
     }
 }

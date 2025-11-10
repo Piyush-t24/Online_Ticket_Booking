@@ -20,19 +20,17 @@ module.exports.loginUser = async (obj) => {
     try {
         const user = await userModel.findOne({ email: obj.email}).select("+password");
         if (!user) {
-            return { error: 'Invalid email' };
+            return { error: 'Invalid email or password' };
         }   
         const passwordMatch = await user.comparePassword(obj.password);
         if (!passwordMatch) {
-            return { error: 'Invalid password' };
+            return { error: 'Invalid email or password' };
         }
         const token = await user.generateAuthToken();
         return {user, token};
     }
     catch (err) {
-   
         throw new Error("server errors");
-        
     }
 }
 // Assuming user model is in this path

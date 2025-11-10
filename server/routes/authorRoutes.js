@@ -48,5 +48,5 @@ router.post('/add-slot',[
 ],authMiddleware.authAuthor, authorController.addSlot);
 
 router.get('/get-all-slots',authMiddleware.authAuthor,authorController.getSlots);
-router.get('/logout',authMiddleware.authAuthor,authorController.logoutAuthor);
+router.get('/logout',authorController.logoutAuthor);
 module.exports = router;

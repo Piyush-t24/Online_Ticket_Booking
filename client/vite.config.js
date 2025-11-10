@@ -6,6 +6,14 @@ export default defineConfig({
   plugins: [react()],
   base: '/client/',
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
+  },
+  resolve: {
+    preserveSymlinks: false
   }
 })

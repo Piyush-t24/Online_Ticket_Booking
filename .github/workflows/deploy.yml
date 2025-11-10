@@ -27,10 +27,38 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} << 'EOF'
             set -e
-            cd /home/ubuntu/Online_Ticket_Booking || cd /home/ubuntu/server || { echo "Directory not found. Please check the deployment path."; exit 1; }
+            # Try to find the project directory
+            if [ -d "/home/ubuntu/Online_Ticket_Booking" ]; then
+              cd /home/ubuntu/Online_Ticket_Booking
+            elif [ -d "/home/ubuntu/server" ]; then
+              cd /home/ubuntu/server
+            else
+              echo "❌ Project directory not found!"
+              echo "Please clone the repository first:"
+              echo "  git clone https://github.com/Piyush-t24/Online_Ticket_Booking.git"
+              exit 1
+            fi
+            
+            echo "📦 Pulling latest changes..."
             git pull origin main
+            
+            echo "📂 Changing to server directory..."
             cd server
+            
+            echo "📥 Installing dependencies..."
             npm install --production
-            pm2 restart museopass-backend || pm2 start server.js --name museopass-backend
+            
+            echo "🔄 Restarting PM2 process..."
+            # Check if process exists
+            if pm2 list | grep -q "museopass-backend"; then
+              pm2 restart museopass-backend
+            else
+              pm2 start server.js --name museopass-backend
+            fi
+            
+            echo "💾 Saving PM2 configuration..."
             pm2 save
+            
+            echo "✅ Deployment completed successfully!"
+            pm2 status
           EOF

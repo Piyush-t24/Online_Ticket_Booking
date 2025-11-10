@@ -7,7 +7,8 @@
   "dev": "nodemon server.js",
   "scripts": {
     "prod": "npm i && pm2 restart all",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch server.js"
   },
   "author": "",
   "license": "ISC",
